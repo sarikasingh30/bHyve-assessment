@@ -1,9 +1,11 @@
 import { useRouter } from 'next/router';
 import { useDispatch} from 'react-redux';
-import { Flex, Heading, Image, Text, Spinner, HStack, Button, Box } from '@chakra-ui/react';
+import { Flex, Spinner, Box } from '@chakra-ui/react';
 import axios from 'axios';
 import Link from 'next/link';
 import { deleteArticle } from '../../redux/articlesSlice';
+
+import { ArticleUpdateCard } from '../../components/ArticleUpdateCard';
 
 const Article = ({ article }) => {
   const router = useRouter();
@@ -32,19 +34,8 @@ const Article = ({ article }) => {
   }
 
   return (
-    <Box width="90%" margin='auto'>
-      <Flex width="50%" margin='auto' p={5} borderWidth='4px' marginTop="4%" flexDirection='column' justifyContent='space-around' alignItems='center' bg="#B0A695">
-          <Heading as='h3' size='lg'>{article.productName}</Heading>
-          <Image boxSize='300px' borderRadius='full' src={article.avatar} marginTop="2"/>
-          <Text mt={2}><span><Text as="b">Description: </Text></span> {article.description}</Text>
-          <Text mt={2}><span><Text as="b">Tags: </Text></span>{article.tags}</Text>
-          <Text mt={2}><span><Text as="b">Category: </Text></span>{article.category}</Text>
-          <Text mt={2}><span><Text as="b">Price: </Text></span> ₹ {article.productPrice}</Text>
-          <HStack>
-            <Link href={`/articles/${article._id}/edit`}><Button mt={2} bg={'#776B5D'} color='white'>Edit</Button></Link>
-            <Button mt={2} bg={'#776B5D'} color='white' onClick={()=>handleDelete(article._id)}>Delete</Button>
-          </HStack>
-        </Flex>
+    <Box width="90%" margin='auto' >
+      <ArticleUpdateCard article={article} handleDelete={handleDelete}/>
     </Box>
   );
 };

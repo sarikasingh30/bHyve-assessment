@@ -1,33 +1,33 @@
-import { Box, Flex,Button } from "@chakra-ui/react";
-import NextLink from "next/link";
+import { Box, Flex, Button } from "@chakra-ui/react";
+import Link from "next/link";
 
 const Navbar = () => {
   return (
     <Box bg={`#776B5D`} px={4}>
       <Flex h={16} alignItems="center" justifyContent="space-between">
         <Box>
-          <NextLink href="/" passHref>
+          <Link href="/">
             <Box color="white" fontWeight="bold" fontSize="xl">
               App...
             </Box>
-          </NextLink>
+          </Link>
         </Box>
         <Flex alignItems="center">
-          <NextLink href="/" passHref>
-            <Button  variant="link" color="white" mr={4}>
+          <Link href="/">
+            <Button variant="link" color="white" mr={4}>
               Home
             </Button>
-          </NextLink>
-          <NextLink href="/articles/search" passHref>
+          </Link>
+          <Link href="/articles/search">
             <Button variant="link" color="white" mr={4}>
               Search
             </Button>
-          </NextLink>
-          <NextLink href="/articles/new" passHref>
-            <Button  variant="link" color='white' mr={4}>
-              Create Article
+          </Link>
+          <Link href="/articles/new">
+            <Button variant="link" color="white" mr={4}>
+              Add Product
             </Button>
-          </NextLink>
+          </Link>
         </Flex>
       </Flex>
     </Box>

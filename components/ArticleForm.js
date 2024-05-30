@@ -20,6 +20,7 @@ const ArticleForm = ({ article = {} }) => {
   const [tags, setTags] = useState(article.tags || "");
   const [productPrice, setProductPrice] = useState(article.productPrice || "");
   const [category, setCategory] = useState(article.category || "");
+
   const dispatch = useDispatch();
   const router = useRouter();
 
@@ -34,6 +35,7 @@ const ArticleForm = ({ article = {} }) => {
     }
   }, [article]);
 
+  // Form Submission Functionality 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (article._id) {
@@ -45,7 +47,6 @@ const ArticleForm = ({ article = {} }) => {
         tags,
         productPrice,
       };
-      // let ids=article.id
       dispatch(updateArticle(newArticle));
     } else {
       const newArticle = {
@@ -64,10 +65,13 @@ const ArticleForm = ({ article = {} }) => {
 
   return (
     <Box p={5} width="50%" margin="auto" mt="5%" shadow="md" borderWidth="1px">
+
       <Heading as="h4" textAlign="center" color="#776B5D">
         {article._id ? "Update" : "Create"} the Article
       </Heading>
+      {/* Article Form */}
       <form onSubmit={handleSubmit}>
+
         <FormControl id="productName" isRequired pt="5px">
           <FormLabel color="#776B5D">Product Name</FormLabel>
           <Input
@@ -76,6 +80,7 @@ const ArticleForm = ({ article = {} }) => {
             onChange={(e) => setproductName(e.target.value)}
           />
         </FormControl>
+
         <FormControl id="description" mt={4} isRequired>
           <FormLabel color="#776B5D">Description</FormLabel>
           <Textarea
@@ -83,10 +88,12 @@ const ArticleForm = ({ article = {} }) => {
             onChange={(e) => setDescription(e.target.value)}
           />
         </FormControl>
+
         <FormControl id="tags" mt={4} isRequired>
           <FormLabel color="#776B5D">Tags</FormLabel>
           <Input value={tags} onChange={(e) => setTags(e.target.value)} />
         </FormControl>
+
         <FormControl id="productPrice" mt={4} isRequired>
           <FormLabel color="#776B5D">ProductPrice</FormLabel>
           <Input
@@ -95,6 +102,7 @@ const ArticleForm = ({ article = {} }) => {
             onChange={(e) => setProductPrice(e.target.value)}
           />
         </FormControl>
+
         <FormControl id="category" mt={4} isRequired>
           <FormLabel color="#776B5D">Category</FormLabel>
           <Textarea
@@ -102,6 +110,7 @@ const ArticleForm = ({ article = {} }) => {
             onChange={(e) => setCategory(e.target.value)}
           />
         </FormControl>
+
         <FormControl id="avatar" mt={4} isRequired>
           <FormLabel color="#776B5D">Avatar</FormLabel>
           <Textarea
@@ -109,10 +118,20 @@ const ArticleForm = ({ article = {} }) => {
             onChange={(e) => setAvatar(e.target.value)}
           />
         </FormControl>
-        <Button mt={4} bg={"#776B5D"} color="white" type="submit" width="100%">
+
+        <Button
+          mt={4}
+          bg="#776B5D"
+          color="white"
+          _hover={{ bg: "#EBE3D5", color: "#776B5D", cursor: "pointer" }}
+          type="submit"
+          width="100%"
+        >
           {article._id ? "Update" : "Create"} Article
         </Button>
+
       </form>
+      
     </Box>
   );
 };
