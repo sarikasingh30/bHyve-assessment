@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchArticles,incrementPage } from '../redux/articlesSlice';
 import { useEffect, useState} from 'react';
-import {Text, Spinner, Box, Flex,Heading, Image } from '@chakra-ui/react';
+import {Text, Spinner, Box, Flex,Heading, Image, GridItem,Grid } from '@chakra-ui/react';
 import InfiniteScroll from "react-infinite-scroll-component"
 import axios from 'axios';
 import Link from 'next/link';
@@ -10,7 +10,6 @@ const Home = ({initialArticles}) => {
   const dispatch = useDispatch();
   const { items, loading,hasMore,error } = useSelector((state) => state.articles);
   const [page,setPage]=useState(1)
-  console.log(items, loading,error)
  
 
   useEffect(() => {
@@ -44,7 +43,8 @@ const Home = ({initialArticles}) => {
   }
 
   return (
-    <Box width="60%" margin="auto">
+    <Box width="90%" margin="auto" marginTop={"5%"}>
+      
       <InfiniteScroll
         dataLength={items.length}
         next={fetchMoreData}
@@ -52,18 +52,23 @@ const Home = ({initialArticles}) => {
         loader={<Spinner />}
         endMessage={<Text>No more articles</Text>}
       >
+        <Grid templateColumns='repeat(3, 1fr)' gap={4} width={"80%"} margin={"auto"}>
       {items?.map((article,index) => (
         <Link href={`/articles/${article._id}`}>
-        <Flex key={`${article.id}-${index}`} p={5} borderWidth='4px' marginTop="8px" flexDirection='column' justifyContent='space-around' alignItems='center' bg="#B0A695">
+        <GridItem key={`${article.id}-${index}`}>
+        <Flex  p={5} borderWidth='4px' marginTop="8px" flexDirection='column' justifyContent='space-around' alignItems='center' bg="#B0A695">
           <Heading as='h3' size='lg'>{article.productName}</Heading>
-          <Image src={`${article.avatar}`||`https://placehold.co/150`} marginTop="4"/>
-          <Text mt={4}>Description: {article.description}</Text>
-          <Text mt={4}>{article.name}</Text>
-          <Text mt={4}>Price:  ₹ {article.productPrice}</Text>
+          <Image src={article.avatar} marginTop="4"/>
+          <Text mt={2}><span><Text as="b">Description: </Text></span>{article.description}</Text>
+          <Text mt={2}>{article.tags}</Text>
+          <Text mt={2}><span><Text as="b">Price:  </Text></span> ₹ {article.productPrice}</Text>
         </Flex>
+        </GridItem>
         </Link>
       ))}
+      </Grid>
       </InfiniteScroll>
+      
     </Box>
   );
 

@@ -18,11 +18,11 @@ const Navbar = () => {
               Home
             </Button>
           </NextLink>
-          {/* <NextLink href="/search" passHref>
-            <Button as={Link} variant="link" color="white" mr={4}>
+          <NextLink href="/articles/search" passHref>
+            <Button variant="link" color="white" mr={4}>
               Search
             </Button>
-          </NextLink> */}
+          </NextLink>
           <NextLink href="/articles/new" passHref>
             <Button  variant="link" color='white' mr={4}>
               Create Article

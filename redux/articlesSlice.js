@@ -7,9 +7,9 @@ let urlApi = new URL("https://665780c45c36170526450bc1.mockapi.io/blogs/v1/artic
 
 export const fetchArticles = createAsyncThunk(
   "articles/fetchArticles",async (page) => {
-    console.log(page)
+   
     const response = await axios.get(`${urlApi}?page=${page}&limit=10`);
-    console.log(response,page)
+    
     return response.data;
   }
 );
@@ -47,10 +47,17 @@ const articlesSlice = createSlice({
     items: [],
     loading: true,
     hasMore:true,
-    error: false
+    error: false,
+   searchQuery:"",
+   filter:""
   },
   reducers: {
-    
+    setSearchQuery(state, action) {
+      state.searchQuery = action.payload;
+    },
+    setFilter(state, action) {
+      state.filter = action.payload;
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -77,5 +84,7 @@ const articlesSlice = createSlice({
       });
   },
 });
+
+export const { setSearchQuery, setFilter } = articlesSlice.actions;
 
 export default articlesSlice.reducer;
