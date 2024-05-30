@@ -1,17 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { fetchArticles, incrementPage } from "../redux/articlesSlice";
 import { useEffect, useState } from "react";
-import {
-  Text,
-  Spinner,
-  Box,
-  Flex,
-  Heading,
-  Image,
-  GridItem,
-  Grid,
-  Button,
-} from "@chakra-ui/react";
+import { Spinner, Box, Flex, Heading, Grid } from "@chakra-ui/react";
 import InfiniteScroll from "react-infinite-scroll-component";
 import axios from "axios";
 import Link from "next/link";
@@ -63,7 +53,20 @@ const Home = ({ initialArticles }) => {
         next={fetchMoreData}
         hasMore={hasMore}
         loader={<Spinner />}
-        endMessage={<Box mt={4} bg={"#776B5D"} color="white" width="30%" margin="auto" borderRadius="xl"><Heading as="h6" textAlign="center">No more articles</Heading></Box>}
+        endMessage={
+          <Box
+            mt={4}
+            bg={"#776B5D"}
+            color="white"
+            width="30%"
+            margin="auto"
+            borderRadius="xl"
+          >
+            <Heading as="h6" textAlign="center">
+              No more articles
+            </Heading>
+          </Box>
+        }
       >
         <Grid
           templateColumns="repeat(3, 1fr)"

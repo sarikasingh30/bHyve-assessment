@@ -16,7 +16,6 @@ export const ArticleUpdateCard = ({ article, handleDelete }) => {
       borderWidth="4px"
       marginTop="4%"
       flexDirection="column"
-      justifyContent="space-around"
       alignItems="center"
       bg="#B0A695"
       color="white"

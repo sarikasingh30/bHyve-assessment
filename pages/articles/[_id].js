@@ -6,6 +6,7 @@ import Link from 'next/link';
 import { deleteArticle } from '../../redux/articlesSlice';
 
 import { ArticleUpdateCard } from '../../components/ArticleUpdateCard';
+import Layout from '../../components/Layout';
 
 const Article = ({ article }) => {
   const router = useRouter();
@@ -34,9 +35,11 @@ const Article = ({ article }) => {
   }
 
   return (
-    <Box width="90%" margin='auto' >
+    <Layout ele={article}>
+      <Box width="90%" margin='auto' >
       <ArticleUpdateCard article={article} handleDelete={handleDelete}/>
     </Box>
+    </Layout>
   );
 };
 
