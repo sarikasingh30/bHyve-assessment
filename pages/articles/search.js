@@ -28,7 +28,7 @@ const Search = ({ articles }) => {
   const filteredArticles = data.filter((article) => {
     return (
       (!searchQuery ||
-        article.productName
+        article.title
           .toLowerCase()
           .includes(searchQuery.toLowerCase())) &&
       (!filter || article.category === filter)

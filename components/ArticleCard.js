@@ -24,7 +24,7 @@ export const ArticleCard = ({ article }) => {
         _hover={{ bg: "#B0A695", color: "white", cursor: "pointer" }}
       >
         <Heading as="h3" size="lg">
-          {article.productName}
+          {article.title}
         </Heading>
         <Image src={article.avatar} marginTop="4" />
         <Text mt={2}>
@@ -40,11 +40,8 @@ export const ArticleCard = ({ article }) => {
           </span>
           {article.category}
         </Text>
-        <Text mt={2} fontSize="lg">
-          <span>
-            <Text as="b">Price: </Text>
-          </span>{" "}
-          ₹ {article.productPrice}
+        <Text as="b" mt={2} fontSize="lg">
+          Author: {article.name}
         </Text>
       </Flex>
     </AnimatedBox>

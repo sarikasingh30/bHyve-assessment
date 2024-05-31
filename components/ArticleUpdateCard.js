@@ -24,7 +24,7 @@ export const ArticleUpdateCard = ({ article, handleDelete }) => {
       _hover={{ bg: "#F3EEEA", color: "#776B5D", cursor: "pointer" }}
     >
       <Heading as="h3" size="lg">
-        {article.productName}
+        {article.title}
       </Heading>
       <Image
         boxSize="300px"
@@ -40,21 +40,15 @@ export const ArticleUpdateCard = ({ article, handleDelete }) => {
       </Text>
       <Text mt={2} fontSize="lg">
         <span>
-          <Text as="b">Tags: </Text>
-        </span>
-        {article.tags}
-      </Text>
-      <Text mt={2} fontSize="lg">
-        <span>
           <Text as="b">Category: </Text>
         </span>
         {article.category}
       </Text>
       <Text mt={2} fontSize="xl">
         <span>
-          <Text as="b">Price: </Text>
+          <Text as="b">Author: </Text>
         </span>{" "}
-        ₹ {article.productPrice}
+        {article.name}
       </Text>
       <HStack>
         <Link href={`/articles/${article._id}/edit`}>

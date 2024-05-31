@@ -25,7 +25,7 @@ const Navbar = () => {
           </Link>
           <Link href="/articles/new">
             <Button variant="link" color="white" mr={4}>
-              Add Product
+              Create New
             </Button>
           </Link>
         </Flex>

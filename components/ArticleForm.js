@@ -14,11 +14,10 @@ import { useRouter } from "next/router";
 import { v4 as uuidv4 } from "uuid";
 
 const ArticleForm = ({ article = {} }) => {
-  const [productName, setproductName] = useState(article.productName || "");
+  const [title, setTitle] = useState(article.title || "");
   const [description, setDescription] = useState(article.description || "");
   const [avatar, setAvatar] = useState(article.avatar || "");
-  const [tags, setTags] = useState(article.tags || "");
-  const [productPrice, setProductPrice] = useState(article.productPrice || "");
+  const [name, setname] = useState(article.name || "");
   const [category, setCategory] = useState(article.category || "");
 
   const dispatch = useDispatch();
@@ -26,11 +25,10 @@ const ArticleForm = ({ article = {} }) => {
 
   useEffect(() => {
     if (article._id) {
-      setproductName(article.productName);
+      setTitle(article.title);
       setAvatar(article.avatar);
       setDescription(article.description);
-      setProductPrice(article.productPrice);
-      setTags(article.tags);
+      setname(article.name);
       setCategory(article.category);
     }
   }, [article]);
@@ -41,21 +39,21 @@ const ArticleForm = ({ article = {} }) => {
     if (article._id) {
       const newArticle = {
         _id: article._id,
-        productName,
+        title,
         description,
+        category,
         avatar,
-        tags,
-        productPrice,
+        name
       };
       dispatch(updateArticle(newArticle));
     } else {
       const newArticle = {
         _id: uuidv4(),
-        productName,
+        title,
         description,
+        category,
         avatar,
-        tags,
-        productPrice,
+        name
       };
       dispatch(createArticle(newArticle));
     }
@@ -67,17 +65,17 @@ const ArticleForm = ({ article = {} }) => {
     <Box p={5} width="50%" margin="auto" mt="5%" shadow="md" borderWidth="1px">
 
       <Heading as="h4" textAlign="center" color="#776B5D">
-        {article._id ? "Update" : "Create"} the Article
+        {article._id ? "Update The" : "Create An"} Article
       </Heading>
       {/* Article Form */}
       <form onSubmit={handleSubmit}>
 
-        <FormControl id="productName" isRequired pt="5px">
-          <FormLabel color="#776B5D">Product Name</FormLabel>
+        <FormControl id="title" isRequired pt="5px">
+          <FormLabel color="#776B5D">Title</FormLabel>
           <Input
             type="text"
-            value={productName}
-            onChange={(e) => setproductName(e.target.value)}
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
           />
         </FormControl>
 
@@ -89,23 +87,15 @@ const ArticleForm = ({ article = {} }) => {
           />
         </FormControl>
 
-        <FormControl id="tags" mt={4} isRequired>
-          <FormLabel color="#776B5D">Tags</FormLabel>
-          <Input value={tags} onChange={(e) => setTags(e.target.value)} />
+        <FormControl id="name" mt={4} isRequired>
+          <FormLabel color="#776B5D">Name</FormLabel>
+          <Input value={name} onChange={(e) => setname(e.target.value)} />
         </FormControl>
 
-        <FormControl id="productPrice" mt={4} isRequired>
-          <FormLabel color="#776B5D">ProductPrice</FormLabel>
-          <Input
-            type="number"
-            value={productPrice}
-            onChange={(e) => setProductPrice(e.target.value)}
-          />
-        </FormControl>
 
         <FormControl id="category" mt={4} isRequired>
           <FormLabel color="#776B5D">Category</FormLabel>
-          <Textarea
+          <Input
             value={category}
             onChange={(e) => setCategory(e.target.value)}
           />
@@ -137,3 +127,4 @@ const ArticleForm = ({ article = {} }) => {
 };
 
 export default ArticleForm;
+
