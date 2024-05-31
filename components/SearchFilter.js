@@ -22,10 +22,10 @@ const SearchFilter = () => {
         />
         <Select placeholder="Filter by category" onChange={handleFilterChange}>
           <option value="monitor">Monitor</option>
-          <option value="Panel">Panel</option>
-          <option value="Microchip">Microchip</option>
-          <option value="Program">Program</option>
-          <option value="Bus">Bus</option>
+          <option value="panel">Panel</option>
+          <option value="microchip">Microchip</option>
+          <option value="program">Program</option>
+          <option value="bus">Bus</option>
         </Select>
       </HStack>
     </Box>

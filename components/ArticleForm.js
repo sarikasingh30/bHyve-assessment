@@ -12,6 +12,13 @@ import {
 import { createArticle, updateArticle } from "../redux/articlesSlice";
 import { useRouter } from "next/router";
 import { v4 as uuidv4 } from "uuid";
+import dynamic from 'next/dynamic';
+
+const RichTextEditor = dynamic(() => import('./RichTextEditor'), { ssr: false });
+
+
+
+
 
 const ArticleForm = ({ article = {} }) => {
   const [title, setTitle] = useState(article.title || "");
@@ -79,13 +86,13 @@ const ArticleForm = ({ article = {} }) => {
           />
         </FormControl>
 
-        <FormControl id="description" mt={4} isRequired>
+        {/* <FormControl id="description" mt={4} isRequired>
           <FormLabel color="#776B5D">Description</FormLabel>
           <Textarea
             value={description}
             onChange={(e) => setDescription(e.target.value)}
           />
-        </FormControl>
+        </FormControl> */}
 
         <FormControl id="name" mt={4} isRequired>
           <FormLabel color="#776B5D">Name</FormLabel>
@@ -108,7 +115,10 @@ const ArticleForm = ({ article = {} }) => {
             onChange={(e) => setAvatar(e.target.value)}
           />
         </FormControl>
-
+        <FormControl id="description" mt={4} isRequired>
+        <FormLabel color="#776B5D">Description</FormLabel>
+        <RichTextEditor value={description} onChange={setDescription} />
+        </FormControl>
         <Button
           mt={4}
           bg="#776B5D"

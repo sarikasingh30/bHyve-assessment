@@ -1,5 +1,5 @@
 import React from "react";
-import { Flex, Heading, Image, Text, HStack, Button } from "@chakra-ui/react";
+import { Flex, Heading, Image, Text, HStack, Button,Box } from "@chakra-ui/react";
 import Link from "next/link";
 
 
@@ -32,12 +32,15 @@ export const ArticleUpdateCard = ({ article, handleDelete }) => {
         src={article.avatar}
         marginTop="2"
       />
-      <Text mt={2} fontSize="lg">
-        <span>
-          <Text as="b">Description: </Text>
-        </span>{" "}
-        {article.description}
-      </Text>
+      <Box mt={2}>
+          <span>
+            <Text as="b">Description: </Text>
+          </span>
+          <Box textAlign="center" dangerouslySetInnerHTML={{ __html: article.description }}/>
+        </Box>
+      
+
+
       <Text mt={2} fontSize="lg">
         <span>
           <Text as="b">Category: </Text>

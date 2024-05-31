@@ -1,6 +1,6 @@
 // Article Card
 import React from "react";
-import { Text, Flex, Heading, Image, GridItem } from "@chakra-ui/react";
+import { Text, Flex, Heading, Image, GridItem,Box } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 
 export const ArticleCard = ({ article }) => {
@@ -27,12 +27,12 @@ export const ArticleCard = ({ article }) => {
           {article.title}
         </Heading>
         <Image src={article.avatar} marginTop="4" />
-        <Text mt={2}>
+        <Box mt={2}>
           <span>
             <Text as="b">Description: </Text>
           </span>
-          {article.description}
-        </Text>
+          <Box textAlign="center" dangerouslySetInnerHTML={{ __html: article.description }}/>
+        </Box>
        
         <Text mt={2} fontSize="md">
           <span>
