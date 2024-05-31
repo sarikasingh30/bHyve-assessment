@@ -126,3 +126,6 @@ No authentication is required for accessing the application.
 - **Axios:** Promise-based HTTP client for making API requests.
 - **Chakra UI:** UI library for building accessible and responsive React applications.
 - **MockAPI:** Service for creating and managing mock RESTful APIs.
+- **React-Quill:** NPM Package for integrating the Quill rich text editor, providing customizable and feature-rich text editing capabilities 
+
+---
