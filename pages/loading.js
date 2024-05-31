@@ -1,8 +1,8 @@
-"use client"
+
 import React from "react";
 import { Spinner } from "@chakra-ui/react";
 
-export const loading = () => {
+const Loading = () => {
   return (
     <>
       <Spinner
@@ -17,3 +17,4 @@ export const loading = () => {
     </>
   );
 };
+export default Loading
