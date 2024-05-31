@@ -1,5 +1,6 @@
 import ArticleForm from "../../../components/ArticleForm";
 import axios from "axios";
+import { Flex, Spinner } from "@chakra-ui/react";
 
 const EditArticle = ({ article }) => {
   if (!article) {
