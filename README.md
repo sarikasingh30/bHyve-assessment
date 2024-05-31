@@ -10,7 +10,7 @@ Frontend
 
 ## Deployed App
 
-Frontend: []()
+Frontend: [https://b-hyve-blog-app.vercel.app](https://b-hyve-blog-app.vercel.app)
 
 ## Directory Structure
 
@@ -34,6 +34,10 @@ Frontend: []()
     ├── package.json
     ├── README.md
 
+
+## Video Walkthrough of the Project
+
+[Video Walkthrough of Features](https://drive.google.com/file/d/1CSldITk-ctrZj7k-bFzTWRjpr2ZAHXzX/view?usp=sharing)
 
 ## Features
 
@@ -80,16 +84,29 @@ To get the project running locally, follow these steps:
 1. Open the homepage to view a list of articles.
 2. Scroll down to load more articles with infinite scrolling.
 
+![alt text](./assets/image.png)
+
 ### Creating a New Article
 
 1. Click on the "Create New Article" button.
 2. Fill out the article form and submit.
+
+![alt text](./assets/image1.png)
+
+### Viewing A Selected Article
+
+1. Click on any article to view its details.
+2. The single article page displays all details and provides options to edit or delete the article.
+
+![alt text](./assets/image2.png)
 
 ### Editing an Article
 
 1. Navigate to the article you want to edit.
 2. Click on the "Edit" button.
 3. Make changes and submit.
+
+![alt text](./assets/image3.png)
 
 ### Deleting an Article
 
@@ -101,8 +118,9 @@ To get the project running locally, follow these steps:
 1. Use the search input to find articles by title.
 2. Use the filter dropdown to filter articles by category.
 
-## Credentials
+![alt text](./assets/image4.png)
 
+## Credentials
 No authentication is required for accessing the application.
 
 ## APIs Used
