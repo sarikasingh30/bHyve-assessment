@@ -10,7 +10,7 @@ Frontend
 
 ## Deployed App
 
-Frontend: [https://b-hyve-ecomm.vercel.app/](https://b-hyve-ecomm.vercel.app/)
+Frontend: []()
 
 ## Directory Structure
 
