@@ -6,7 +6,7 @@ import Link from "next/link";
 
 export const ArticleUpdateCard = ({ article, handleDelete }) => {
 
-
+  console.log(handleDelete)
 
   return (
     <Flex
@@ -33,7 +33,7 @@ export const ArticleUpdateCard = ({ article, handleDelete }) => {
         marginTop="2"
         alt="boxes.."
       />
-      <Box mt={2}>
+      <Box mt={2} width="90%" margin="auto">
           <span>
             <Text as="b">Description: </Text>
           </span>

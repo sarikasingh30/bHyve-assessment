@@ -35,8 +35,8 @@ export const updateArticle = createAsyncThunk(
 
 export const deleteArticle = createAsyncThunk(
   "articles/deleteArticle",
-  async (id) => {
-    await axios.delete(`${urlApi}/${id}`);
+  async (_id) => {
+    await axios.delete(`${urlApi}/${_id}`);
     return id;
   }
 );

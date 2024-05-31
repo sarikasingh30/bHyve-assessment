@@ -11,8 +11,8 @@ const Article = ({ article }) => {
   const router = useRouter();
   const dispatch = useDispatch();
 
-  const handleDelete = (id) => {
-    dispatch(deleteArticle(id));
+  const handleDelete = (_id) => {
+    dispatch(deleteArticle(_id));
     router.push("/");
   };
 

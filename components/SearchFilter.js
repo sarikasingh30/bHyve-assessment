@@ -1,8 +1,11 @@
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Input, Select, Box, HStack } from '@chakra-ui/react';
 import { setSearchQuery, setFilter } from '../redux/articlesSlice';
 
 const SearchFilter = () => {
+  const {searchQuery} = useSelector(
+    (state) => state.articles
+  );
   const dispatch = useDispatch();
 
   const handleSearchChange = (event) => {
@@ -18,6 +21,7 @@ const SearchFilter = () => {
       <HStack spacing={4}>
         <Input
           placeholder="Search articles..."
+          value={searchQuery}
           onChange={handleSearchChange}
         />
         <Select placeholder="Filter by category" onChange={handleFilterChange}>

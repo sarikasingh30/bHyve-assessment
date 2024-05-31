@@ -31,7 +31,7 @@ export const ArticleCard = ({ article }) => {
           <span>
             <Text as="b">Description: </Text>
           </span>
-          <Box textAlign="center" dangerouslySetInnerHTML={{ __html: article.description }}/>
+          <Box width="90%" margin="auto" textAlign="center" dangerouslySetInnerHTML={{ __html: article.description }}/>
         </Box>
        
         <Text mt={2} fontSize="md">

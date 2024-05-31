@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Flex, Spinner, Box, Grid } from "@chakra-ui/react";
 import axios from "axios";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import SearchFilter from "../../components/SearchFilter";
 import { ArticleCard } from "../../components/ArticleCard";
 
@@ -19,6 +19,7 @@ const Search = ({ articles }) => {
       (!filter || article.category === filter)
     );
   });
+
 
   if (!data) {
     return (
