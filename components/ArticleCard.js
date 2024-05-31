@@ -26,7 +26,7 @@ export const ArticleCard = ({ article }) => {
         <Heading as="h3" size="lg">
           {article.title}
         </Heading>
-        <Image src={article.avatar} marginTop="4" />
+        <Image src={article.avatar} marginTop="4"  alt="imgs"/>
         <Box mt={2}>
           <span>
             <Text as="b">Description: </Text>

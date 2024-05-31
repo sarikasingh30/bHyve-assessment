@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { fetchArticles, incrementPage } from "../redux/articlesSlice";
 import { useEffect, useState } from "react";
-import { Spinner, Box, Flex, Heading, Grid } from "@chakra-ui/react";
+import { Spinner, Box, Heading, Grid } from "@chakra-ui/react";
 import InfiniteScroll from "react-infinite-scroll-component";
 import axios from "axios";
 import Link from "next/link";

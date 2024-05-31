@@ -31,6 +31,7 @@ export const ArticleUpdateCard = ({ article, handleDelete }) => {
         borderRadius="full"
         src={article.avatar}
         marginTop="2"
+        alt="boxes.."
       />
       <Box mt={2}>
           <span>

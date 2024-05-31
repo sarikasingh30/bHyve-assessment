@@ -1,21 +1,8 @@
-import { useRouter } from "next/router";
+
 import { useDispatch, useSelector } from "react-redux";
-import {
-  Flex,
-  Heading,
-  Image,
-  Text,
-  Spinner,
-  HStack,
-  Button,
-  Box,
-  Grid,
-  GridItem,
-  VStack,
-} from "@chakra-ui/react";
+import { Flex, Spinner, Box, Grid } from "@chakra-ui/react";
 import axios from "axios";
 import Link from "next/link";
-import { deleteArticle } from "../../redux/articlesSlice";
 import { useState } from "react";
 import SearchFilter from "../../components/SearchFilter";
 import { ArticleCard } from "../../components/ArticleCard";
@@ -28,9 +15,7 @@ const Search = ({ articles }) => {
   const filteredArticles = data.filter((article) => {
     return (
       (!searchQuery ||
-        article.title
-          .toLowerCase()
-          .includes(searchQuery.toLowerCase())) &&
+        article.title.toLowerCase().includes(searchQuery.toLowerCase())) &&
       (!filter || article.category === filter)
     );
   });
@@ -52,17 +37,19 @@ const Search = ({ articles }) => {
 
   return (
     <Box width="90%" margin={"auto"} p={5}>
-        <SearchFilter/>
-      <Grid width="90%" margin="auto" templateColumns="repeat(3, 1fr)" gap={6} mt={"4%"}>
+      <SearchFilter />
+      <Grid
+        width="90%"
+        margin="auto"
+        templateColumns="repeat(3, 1fr)"
+        gap={6}
+        mt={"4%"}
+      >
         {filteredArticles?.map((el) => {
           return (
-            <Link
-            href={`/articles/${el._id}`}
-            key={el._id}
-          >
-            <ArticleCard article={el} key={el._id} />
-          </Link>
-        
+            <Link href={`/articles/${el._id}`} key={el._id}>
+              <ArticleCard article={el} key={el._id} />
+            </Link>
           );
         })}
       </Grid>
