@@ -31,21 +31,6 @@ const Home = ({ initialArticles }) => {
     dispatch(fetchArticles(page + 1));
   };
 
-  if (loading) {
-    return (
-      <Flex alignItems="center" justifyContent="center">
-        <Spinner
-          mt="5"
-          thickness="4px"
-          speed="0.65s"
-          emptyColor="gray.200"
-          color="blue.500"
-          size="xl"
-        />
-      </Flex>
-    );
-  }
-
   return (
     <Box width="95%" margin="auto" marginTop={"5%"}>
       <InfiniteScroll
